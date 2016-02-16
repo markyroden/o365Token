@@ -9,10 +9,10 @@ var app = (function () {
     app.getToken = function (tokenParams) {
 
         var url =   tokenParams.authServer +
-                    "response_type=" + encodeURI(tokenParams.responseType) + "&" +
-                    "client_id=" + encodeURI(tokenParams.clientId) + "&" +
-                    "resource=" + encodeURI(tokenParams.resource) + "&" +
-                    "redirect_uri=" + encodeURI(tokenParams.replyUrl);
+            "response_type=" + encodeURI(tokenParams.responseType) + "&" +
+            "client_id=" + encodeURI(tokenParams.clientId) + "&" +
+            "resource=" + encodeURI(tokenParams.resource) + "&" +
+            "redirect_uri=" + encodeURI(tokenParams.replyUrl);
 
         var winObj = window.open(url);
         winObj.focus();
@@ -57,10 +57,10 @@ var app = (function () {
 
     }
 
-	app.tokenCallback = function(token){
-		//this would then continue to do what you really need in the Add-In
+    app.tokenCallback = function(token){
+        //this would then continue to do what you really need in the Add-In
         document.getElementById('tokenHere').innerHTML = token
-	}
+    }
 
 
     return app;

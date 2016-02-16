@@ -8,12 +8,13 @@
             $(document).ready(function () {
 
                 var tokenParams = {}
-                // Creat the token parameters
                 tokenParams.authServer   = 'https://login.windows.net/common/oauth2/authorize?';
-                tokenParams.clientId     = document.getElementById('clientId').value;
-                tokenParams.replyUrl     = location.href.split("?")[0]; //document.getElementById('replyURL');
-                tokenParams.resource	 = document.getElementById('resource').value;
                 tokenParams.responseType = 'token';
+
+                //THESE tokenParams need to be changed for your application
+                tokenParams.clientId     = 'Your-app-clientId-goes-here'
+                tokenParams.replyUrl     = location.href.split("?")[0];
+                tokenParams.resource	 = "https://yoursite.sharepoint.com"
 
                 app.getToken(tokenParams);
 
