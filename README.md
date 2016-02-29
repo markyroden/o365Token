@@ -13,6 +13,5 @@ e.g. https://yoursite.azurewebsites.net/sample/index.html
 
 Modify the following token parameters in app.js to match your application
 
-  clientid
-  
-  resource
+* clientid
+* resource
