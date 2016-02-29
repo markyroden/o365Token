@@ -15,3 +15,5 @@ Modify the following token parameters in app.js to match your application
 
 * clientid
 * resource
+
+For more information check out the blog post - http://xomino365.com/2016/02/28/o365token-github-project-authenticating-office-add-ins-to-azure-ad-using-only-javascript-no-c/
