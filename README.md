@@ -22,7 +22,7 @@ For more information check out the blog post - http://xomino365.com/2016/02/28/o
 # Release notes
 
 Version 0.1
-Initial release
+* Initial release
 
 Version 0.2
 * Added document.cookie caching.
