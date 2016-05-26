@@ -8,20 +8,21 @@ var app = (function () {
     //Change this value for every Add-In
     app.addinName = "OAuthToken"
 
-    // Function called when the page has opened outside of the Add-In
+    // Function called when the page has opened in the Outlook Add-In
     app.getToken = function (tokenParams) {
 
         var url =   tokenParams.authServer +
-                    "response_type=" + encodeURI(tokenParams.responseType) + "&" +
-                    "client_id=" + encodeURI(tokenParams.clientId) + "&" +
-                    "resource=" + encodeURI(tokenParams.resource) + "&" +
-                    "redirect_uri=" + encodeURI(tokenParams.replyUrl);
+            "response_type=" + encodeURI(tokenParams.responseType) + "&" +
+            "client_id=" + encodeURI(tokenParams.clientId) + "&" +
+            "resource=" + encodeURI(tokenParams.resource) + "&" +
+            "redirect_uri=" + encodeURI(tokenParams.replyUrl);
 
-       // var winObj = window.open(url);
-       // winObj.focus();
-        location.href=url;
+        var winObj = window.open(url);
+        winObj.focus();
+
     };
 
+    //Function called when the page has been called post token-generation in the pop-up window
     app.returnToken = function(){
         var urlParameterExtraction = new (function () {
             function splitQueryString(queryStringFormattedString) {
@@ -51,26 +52,22 @@ var app = (function () {
 
         var token = urlParameterExtraction.queryStringParameters['access_token'];
 
-        if (token){
+        if (window.opener){
             app.setCookie(token, 3600);
-            app.tokenCallback(token)
-        } else {
-            document.write("Shame")
-        }
-        /*if (window.opener){
             window.opener.app.tokenCallback(token);
             window.close()
         } else {
             document.write("There appears to have been an error, please close the window and check with your administrator")
-        }*/
+        }
 
-    }
+    };
 
-	app.tokenCallback = function(token){
-		//this would then continue to do what you really need in the Add-In
+    //The code which runs the Add-In itself
+    app.tokenCallback = function(token){
+        //this would then continue to do what you really need in the Add-In
         document.getElementById('tokenHere').innerHTML = token
-	}
-    
+    };
+
     app.setCookie = function(value, duration) {
         var now = new Date();
         var time = now.getTime();
@@ -94,3 +91,4 @@ var app = (function () {
 
     return app;
 })();
+

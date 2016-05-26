@@ -17,12 +17,16 @@ Modify the following token parameters in app.js to match your application
 * clientid
 * resource
 
-For more information check out the blog post - http://xomino365.com/2016/02/28/o365token-github-project-authenticating-office-add-ins-to-azure-ad-using-only-javascript-no-c/
+For more information check out the blog post - https://xomino.com/
 
 # Release notes
 
-Version 0.1
-* Initial release
+Version 1.0
+* This release demonstrates the ability to create an Authorization key within the Outlook Add-in itself. There is no need for using a Dialog or window.opener.
+
+
+Version 0.3
+* Added O365Chrome_Extension Example
 
 Version 0.2
 * Added document.cookie caching.
@@ -30,5 +34,7 @@ Version 0.2
 * The token is now cached for 3600 seconds as a cookie in the domain of the hosted add-in. That means if the user needs to use the Add-In again within 60 minutes the popup window will not appear.
 * This cookie needs to be set for each Add-In because the necessary permissions and end-points will always be different
 
-Version 0.3
-* Added O365Chrome_Extension Example
+Version 0.1
+* Initial release
+For more information check out the blog post - http://xomino365.com/2016/02/28/o365token-github-project-authenticating-office-add-ins-to-azure-ad-using-only-javascript-no-c/
+
