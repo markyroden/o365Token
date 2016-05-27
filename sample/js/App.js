@@ -81,7 +81,7 @@ var app = (function () {
         console.log(document.cookie);
     }
 
-    app.getCookie = function (addinName, name){
+    app.getCookie = function (name){
         var pattern = RegExp(name + "=.[^;]*")
         var matched = document.cookie.match(pattern)
         if(matched){
