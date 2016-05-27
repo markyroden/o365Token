@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <!-- 
+  
+  This is a sample manifest file for an Outlook Add-in - associated with the O365Token repository
+  https://github.com/markyroden/o365Token
+
+  -->
+
+<OfficeApp xmlns=
+  "http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:type="MailApp">
+
+  <Id>your-guid-would-go-here</Id>
+  <Version>1.0</Version>
+  <ProviderName>xomino.com Sample</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="O365Token 2.2"/>
+  <Description DefaultValue="Sample O365Token 2 Add-In" />
+
+  <!-- The following are required for the Office Manifest v 1.1-->
+  <!-- Must be between 64*64 and 128*128-->
+  <IconUrl DefaultValue="https://xomino365.azurewebsites.net/somewhere.png" />
+
+  <!-- Must be 128 * 128-->
+  <HighResolutionIconUrl DefaultValue="https://xomino365.azurewebsites.net/somewhere.png" />
+
+  <SupportUrl DefaultValue="https://xomino365.azurewebsites.net" />
+
+  <!-- Used so that the Add-in is able to traverse the necessary domains to obtain an OAuth token via implicit flow-->
+  <AppDomains>
+    <AppDomain>https://login.windows.net</AppDomain>
+	<AppDomain>https://login.microsoftonline.com</AppDomain>
+  </AppDomains>
+  
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="Mailbox" />
+    </Sets>
+  </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <!-- Change the following line to specify     -->
+        <!-- the web server that hosts the HTML file. -->
+        <SourceLocation DefaultValue="https://yourServer.com/index.html" />
+        <RequestedHeight>320</RequestedHeight>
+      </DesktopSettings>
+      <TabletSettings>
+        <!-- Change the following line to specify     -->
+        <!-- the web server that hosts the HTML file. -->
+        <SourceLocation DefaultValue="https://yourServer.com/index.html" />
+        <RequestedHeight>320</RequestedHeight>
+      </TabletSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="And">
+    <!-- To add more complex rules, add additional rule elements -->
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+    <!-- E.g. To activate when a message contains an address -->
+    <!-- <Rule xsi:type="ItemHasKnownEntity" EntityType="Address" /> -->
+  </Rule>
+
+</OfficeApp>
