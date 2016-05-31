@@ -17,7 +17,7 @@ Modify the following token parameters in app.js to match your application
 * clientid
 * resource
 
-For more information check out the blog post - https://xomino.com/
+For more information check out the blog post - https://xomino.com/2016/05/30/obtain-an-office-365-oauth-token-from-within-an-office-add-in-without-pop-ups-or-dialogs/
 
 # Release notes
 
